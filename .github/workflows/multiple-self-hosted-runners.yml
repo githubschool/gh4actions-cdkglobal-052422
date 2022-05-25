@@ -1,0 +1,52 @@
+name: Run multiple runners demo
+
+on:
+  workflow_dispatch:
+    inputs:
+      run-script:
+        description: "Do you want to run this action (yes/no)"
+        required: true
+        default: 'yes'
+        
+jobs:
+  run-github-hosted:
+    name: Run in GitHub hosted
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Say "Hello, GitHub hosted"
+        run: |
+          echo "Hello, GitHub hosted"
+
+          
+  run-all-self-hosted:
+    name: Run in all self-hosted
+    runs-on: self-hosted
+    
+    steps:
+      - name: Say "Hello, Self-Hosted runners"
+        run: |
+          echo "Hello, all Self-hosted runner"
+          
+          
+          
+  run-aws-hosted:
+    name: Run in AWS self-hosted
+    runs-on: [self-hosted, aws]
+    
+    steps:
+      - name: Say "Hello, AWS Self-Hosted runners"
+        run: |
+          echo "Hello, AWS Self-hosted runner"
+          
+
+  run-local-hosted:
+    name: Run in loca self-hosted
+    runs-on: [self-hosted, custom]
+    
+    steps:
+      - name: Say "Hello, local Self-Hosted runners"
+        run: |
+          echo "Hello, local Self-hosted runner"
+          
+  
