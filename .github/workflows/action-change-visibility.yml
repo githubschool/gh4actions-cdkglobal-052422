@@ -33,7 +33,7 @@ jobs:
                 -H "Accept: application/vnd.github.v3+json" \
                 -H "Authorization: token ${{ secrets.CUSTOM_TOKEN }}" \
                 https://api.github.com/repos/${{ github.event.inputs.organization }}/$repo \
-                -d '{"visibility":"internal"}'
+                -d '{"visibility":"${{ github.event.inputs.visibility}}"}'
           done < "repos.txt"
 
 
