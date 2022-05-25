@@ -25,13 +25,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Discover different Project Boards
-        uses: actions/github-script@v4.1
+        uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           previews: 'inertia' # required for Projects API
           script: |       
             try {
-              listProjects = await github.projects.listForRepo({
+              listProjects = await github.rest.projects.listForRepo({
                 owner: context.payload.organization.login ,
                 repo: context.payload.repository.name ,
                 per_page: 100
