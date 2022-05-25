@@ -77,7 +77,7 @@
     <repository>
      <id>YOUR_PACKAGE_ID</id>
      <name>Some description for your package name/name>
-     <url>https://maven.pkg.github.com/YOUR_PACKAGE_ORG/YOOUR PACKAGE_REPO</url>
+     <url>https://maven.pkg.github.com/YOUR_PACKAGE_ORG/YOUR PACKAGE_REPO</url>
    </repository>
   </distributionManagement>
 

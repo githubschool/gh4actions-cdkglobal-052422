@@ -1,0 +1,12 @@
+{
+  "name": "@REPLACE_WITH_YOUR_ORG_NAME/random-num",
+  "version": "1.0.0",
+  "description": "This is a sample test for GitHub NPM",
+  "main": "index.js",
+  "repository": "git@github.com:REPLACE_WITH_YOUR_ORG_NAME/REPLACE_WITH_YOUR_REPO_NAME.git",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
