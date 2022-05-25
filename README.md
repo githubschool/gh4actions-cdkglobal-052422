@@ -26,3 +26,4 @@ Sample GitHub Package registry codes included in this repo
 | [`ghpr-demo-code/Maven`](/ghpr-demo-code/Maven) | Example of Maven code to publish to GitHub Package registry |
 | [`ghpr-demo-code/NPM`](/ghpr-demo-code/NPM) | Example of NPM code to publish to GitHub Package registry |
 
+Test
