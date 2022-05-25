@@ -1,0 +1,23 @@
+name: Called workflow
+
+on:
+  workflow_call:
+    inputs:
+      username:
+        required: true
+        type: string
+    secrets:
+      token:
+        required: false
+
+jobs:
+  reusable_workflow_job:
+    runs-on: ubuntu-latest
+  steps:
+    - name: Test
+        run: |
+          echo "My username coming from caller workflow is $USERNAME"
+          echo "And my secret from caller workflow is $MY_TOKEN"
+        env:
+          USERNAME: ${{ inputs.username }}
+          MY_TOKEN: ${{ secrets.token }}
