@@ -9,4 +9,4 @@ jobs:
     with:
       username: Mona
     secrets:
-      envPAT: ${{ secrets.SECRET_REUSABLE }}
+      token: ${{ secrets.SECRET_REUSABLE }}
