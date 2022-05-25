@@ -1,0 +1,42 @@
+name: Change repo visibility
+
+on:
+  workflow_dispatch:
+    inputs:
+      organization:
+        description: "Tell me the name of your organization"
+        required: true
+        default: 'githubschool'
+      visibility:
+        description: "Tell me what repositories visibility to set to (e.g. private, public, or internal)"
+        required: true
+        default: 'private'
+    
+defaults:
+  run:
+    working-directory: data
+    
+jobs:
+  change-visibility:
+    runs-on: ubuntu-latest
+    steps:
+    
+      - name: Checkout files
+        uses: actions/checkout@v2
+        
+      - name: Update repo
+        run: |
+          while read repo; 
+            do
+              curl \
+                -X PATCH \
+                -H "Accept: application/vnd.github.v3+json" \
+                -H "Authorization: token ${{ secrets.CUSTOM_TOKEN }}" \
+                https://api.github.com/repos/${{ github.event.inputs.organization }}/$repo \
+                -d '{"visibility":"internal"}'
+          done < "repos.txt"
+
+
+
+
+       
