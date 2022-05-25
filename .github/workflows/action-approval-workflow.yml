@@ -1,0 +1,58 @@
+name: Use secrets and environments
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# Limit the permissions of the GITHUB_TOKEN
+permissions:
+  contents: read
+  actions: read
+  deployments: write
+
+env:
+  URL1: 'https://github.com'
+  URL2: 'https://docs.github.com'
+
+jobs:
+  use-environment-1:
+    name: Use environment 1
+    runs-on: ubuntu-latest
+    # Use conditionals to control whether the job is triggered or skipped
+    if: ${{ github.event_name == 'pull_request' }}
+    
+    # An environment can be specified per job
+    # We can use variables and expressions in the URL field
+    # If the environment cannot be found, it will be created
+    environment:
+      name: test
+      url: ${{ env.URL1 }}
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Some step using the environment
+        run: echo "In this step we could for example do the deployment to ${{ env.URL1 }} ..."
+
+  use-environment-2:
+    name: Use environment 2
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    
+    environment:
+      name: prod
+      url: ${{ env.URL2 }}
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Some actions logic
+        run: echo "In this step we could for example do the deployment to ${{ env.URL2 }}..."
+        
+      - name: Dump GitHub context
+        id: github_context_step
+        run: echo '${{ toJSON(github) }}'
