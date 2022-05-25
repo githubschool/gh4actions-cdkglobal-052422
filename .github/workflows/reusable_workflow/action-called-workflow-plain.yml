@@ -15,9 +15,9 @@ jobs:
     runs-on: ubuntu-latest
   steps:
     - name: Test
-        run: |
-          echo "My username coming from caller workflow is $USERNAME"
-          echo "And my secret from caller workflow is $MY_TOKEN"
-        env:
-          USERNAME: ${{ inputs.username }}
-          MY_TOKEN: ${{ secrets.token }}
+      run: |
+        echo "My username coming from caller workflow is $USERNAME"
+        echo "And my secret from caller workflow is $MY_TOKEN"
+      env:
+        USERNAME: ${{ inputs.username }}
+        MY_TOKEN: ${{ secrets.token }}
