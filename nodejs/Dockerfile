@@ -1,4 +1,4 @@
-FROM ghcr.io/bryantsonfabrikam/node:latest
+FROM ghcr.io/githubschool/node:latest
 
 WORKDIR /app
 
