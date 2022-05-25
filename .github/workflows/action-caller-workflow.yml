@@ -10,3 +10,10 @@ jobs:
       username: Mona
     secrets:
       token: ${{ secrets.SECRET_REUSABLE }}
+      
+  call-workflow-passing-data-with-inherit-secret:
+    uses: githubschool/gh4actions-cdkglobal-052522/.github/workflows/action-called-workflow-plain.yml@main
+    with:
+      username: Mona
+    secrets: inherit
+      
