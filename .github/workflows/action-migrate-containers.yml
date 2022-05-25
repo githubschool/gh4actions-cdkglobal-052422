@@ -1,0 +1,48 @@
+name: Migrate containers to GHCR
+
+on:
+  workflow_dispatch:
+    inputs:
+      organization:
+        description: "Please provide the organization that you want to run"
+        required: true
+        default: 'githubschool'
+      containerList:
+        description: "Please provide the name of file that lists the container that you want migrate from"
+        required: true
+        default: 'containers.txt'
+   
+permissions:
+  packages: write
+  contents: write
+  
+env:
+  ORGANIZATION: ${{ github.event.inputs.organization }}
+  FILE_CONTAINERS: ${{ github.event.inputs.containerList }}
+
+defaults:
+  run:
+    working-directory: container-migration
+    
+jobs:   
+  Pull-And-Push-Image:
+    runs-on: ubuntu-latest
+    name: Migrate containers
+    
+    steps:          
+      - name: Checkout files
+        uses: actions/checkout@v2
+        
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Migrate containers
+        run: |
+          chmod +x ./migrate-containers.sh
+          ./migrate-containers.sh
+
+     
