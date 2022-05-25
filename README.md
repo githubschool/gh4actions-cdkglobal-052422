@@ -16,6 +16,7 @@ Sample GitHub Actions workflows included in this repo
 | [`.github/workflows/action-issueops.yml`](/.github/workflows/action-issueops.yml) | Example of IssueOps workflow |
 | [`.github/workflows/action-migrate-containers.yml`](/.github/workflows/action-migrate-containers.yml) | Example of migrating containers from DockerHub to GitHub Container registry |
 | [`.github/workflows/action-send-slack.yml`](/.github/workflows/action-send-slack.yml) | Example of sending a Slack message from Actions |
+| [`.github/workflows/action-discover-projectoboard.yml`](/.github/workflows/action-discover-projectoboard.yml) | Example of discovering Project Board |
 
 Sample GitHub Package registry codes included in this repo
 
