@@ -1,0 +1,12 @@
+name: Call a reusable workflow
+
+on:
+  workflow_dispatch
+      
+jobs:
+  call-workflow-passing-data:
+    uses: githubschool/gh4actions-cdkglobal-052522/.github/workflows/reusable_workflow/action-called-workflow-plain.yml@main
+    with:
+      username: Mona
+    secrets:
+      envPAT: ${{ secrets.SECRET_REUSABLE }}
