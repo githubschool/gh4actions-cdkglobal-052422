@@ -27,7 +27,7 @@ jobs:
       - name: Discover different Project Boards
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.CUSTOMM_TOKEN }}
           previews: 'inertia' # required for Projects API
           script: |       
             try {
