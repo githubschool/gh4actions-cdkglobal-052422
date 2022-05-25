@@ -5,7 +5,7 @@ on:
       
 jobs:
   call-workflow-passing-data:
-    uses: githubschool/gh4actions-cdkglobal-052522/.github/workflows/action-called-workflow-plain.yml@main
+    uses: githubschool/gh4actions-cdkglobal-052522/.github/workflows/action-called-workflow.yml@main
     with:
       username: Mona
     secrets:
