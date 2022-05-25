@@ -1,0 +1,20 @@
+name: Hello CDK
+
+on:
+  workflow_dispatch:
+      inputs:
+         myName:
+            description: "Please type in your name"
+            required: true
+            default: ''
+
+jobs:
+   Hello-GitHub-Actions:
+      runs-on: ubuntu-latest
+      name: Just saying "hi"
+
+      steps:
+        - name: Hello, CDK
+          run: |
+             echo "Thank you for warm welcoming! My name is ${{ github.event.inputs.myName }}"
+             echo "Please enjoy GitHub Actions!"
