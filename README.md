@@ -1,2 +1,3 @@
-# gh4actions-cdkglobal-052422
+# GitHub Actions training
+
 Repository to teach GitHub Actions training course
